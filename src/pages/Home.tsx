@@ -42,7 +42,7 @@ export function Home() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link 
-              to="/produtos" 
+              to="/planos" 
               className="px-8 py-3 bg-[#bae8b0] text-[#020e27] font-bold rounded-full hover:bg-[#a3d995] transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Ver Planos <ArrowRight size={20} />
