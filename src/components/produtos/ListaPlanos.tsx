@@ -27,8 +27,10 @@ export default function ListaPlanos({ planos, carregando, onSelecionarPlano }: L
 
   if (carregando) {
     return (
-      <div className="text-center py-12">
-        <p className="text-gray-600 text-lg">Carregando planos...</p>
+      <div className="flex flex-col items-center justify-center py-16">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mb-6"></div>
+        <p className="text-blue-700 text-xl font-semibold tracking-wide drop-shadow">Carregando planos...</p>
+        <p className="text-gray-500 mt-2">Buscando as melhores opções para você!</p>
       </div>
     );
   }
