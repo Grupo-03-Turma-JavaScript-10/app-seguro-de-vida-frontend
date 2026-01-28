@@ -153,7 +153,7 @@ export default function Produtos() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen">
       {/* Etapa de Seleção de Planos */}
       {etapa === 'planos' && (
         <ListaPlanos
