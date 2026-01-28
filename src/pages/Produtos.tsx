@@ -144,9 +144,17 @@ export default function Produtos() {
       
       setEtapa('planos');
       setPlanoSelecionado(null);
-    } catch (erro) {
+    } catch (erro: any) {
       console.error('Erro ao criar cadastro:', erro);
-      toast.error('Erro ao criar cadastro. Tente novamente.');
+      // Verifica se é o erro de menor de idade vindo do backend
+      if (
+        erro?.response?.data?.message === 'Usuário deve ter pelo menos 18 anos' ||
+        (Array.isArray(erro?.response?.data?.message) && erro.response.data.message.includes('Usuário deve ter pelo menos 18 anos'))
+      ) {
+        toast.error('Você deve ter pelo menos 18 anos para se cadastrar.');
+      } else {
+        toast.error('Erro ao criar cadastro. Tente novamente.');
+      }
     } finally {
       setLoading(false);
     }
