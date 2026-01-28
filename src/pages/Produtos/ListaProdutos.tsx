@@ -63,8 +63,10 @@ export function ListaProdutos() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[400px]">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+      <div className="flex flex-col justify-center items-center min-h-[400px] gap-4">
+        <Loader2 className="w-12 h-12 animate-spin text-emerald-600" />
+        <p className="text-gray-600 text-lg">Carregando produtos...</p>
+        <p className="text-gray-500 text-sm">Aguarde, o servidor pode demorar alguns segundos</p>
       </div>
     );
   }

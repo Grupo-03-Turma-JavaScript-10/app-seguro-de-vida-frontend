@@ -44,7 +44,7 @@ export function CardProduto({ produto, onDelete }: CardProdutoProps) {
           {produto.usuario && (
             <div className="flex justify-between">
               <span className="text-gray-600">Usuário:</span>
-              <span className="font-medium text-gray-900">{produto.usuario}</span>
+              <span className="font-medium text-gray-900">{produto.usuario.nome}</span>
             </div>
           )}
         </div>
