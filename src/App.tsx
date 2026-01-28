@@ -1,9 +1,27 @@
-function App() {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <h1 className="text-3xl font-bold text-center py-8">Seguro de Vida</h1>
-    </div>
-  )
-}
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
-export default App
+import { Home } from "./pages/Home";
+import { Categorias } from "./pages/Categorias";
+import { CadastrarCategoria } from "./pages/CadastrarCategoria";
+import Produtos from "./pages/Produtos";
+
+export default function App() {
+  return (
+    <div className="flex flex-col min-h-screen bg-[#f8f9fa] font-sans text-gray-900">
+      <Header />
+
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/categorias" element={<Categorias />} />
+          <Route path="/cadastrarCategoria" element={<CadastrarCategoria />} />
+          <Route path="/produtos" element={<Produtos />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
