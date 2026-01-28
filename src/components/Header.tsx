@@ -9,7 +9,7 @@ export function Header() {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/sobre", label: "Sobre Nós" },
-    { path: "/produtos", label: "Planos" },
+    { path: "/planos", label: "Planos" },
   ];
 
   return (
