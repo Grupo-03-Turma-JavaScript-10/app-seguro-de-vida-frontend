@@ -15,10 +15,10 @@ export function Footer() {
               saúde e previdência, adaptadas ao seu ritmo e necessidades.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Facebook"><Facebook size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Instagram"><Instagram size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Twitter"><Twitter size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Linkedin"><Linkedin size={20} /></a>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><a href="/" className="hover:text-[#bae8b0] transition-colors">Home</a></li>
               <li><a href="/temas" className="hover:text-[#bae8b0] transition-colors">Nossos Temas</a></li>
-              <li><a href="/produtos" className="hover:text-[#bae8b0] transition-colors">Planos Disponíveis</a></li>
+              <li><a href="/planos" className="hover:text-[#bae8b0] transition-colors">Planos Disponíveis</a></li>
               <li><a href="/sobre" className="hover:text-[#bae8b0] transition-colors">Sobre Nós</a></li>
               <li><a href="#" className="hover:text-[#bae8b0] transition-colors">Política de Privacidade</a></li>
             </ul>
