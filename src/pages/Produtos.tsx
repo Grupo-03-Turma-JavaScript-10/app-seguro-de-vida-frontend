@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { cadastrarUsuario, cadastrarSeguroVida, listarSegurosVida } from '../services/Service';
 import { CreateUsuarioDto } from '../interfaces/CreateUsuarioDto';
 import { SeguroVida } from '../interfaces/SeguroVida';
@@ -7,6 +8,7 @@ import ListaPlanos from '../components/produtos/ListaPlanos';
 import FormCadastro from '../components/produtos/FormCadastro';
 
 export default function Produtos() {
+  const navigate = useNavigate();
   const [etapa, setEtapa] = useState<'planos' | 'cadastro'>('planos');
   const [planoSelecionado, setPlanoSelecionado] = useState<SeguroVida | null>(null);
   const [planos, setPlanos] = useState<SeguroVida[]>([]);
@@ -147,6 +149,7 @@ export default function Produtos() {
       
       setEtapa('planos');
       setPlanoSelecionado(null);
+      navigate('/testeSeguros');
     } catch (erro: any) {
       console.error('Erro ao criar cadastro:', erro);
       // Verifica se é o erro de menor de idade vindo do backend
