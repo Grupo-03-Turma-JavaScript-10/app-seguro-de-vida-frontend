@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiltrosSeguro } from '../../models/Interfaces';
+import { ShieldCheck } from 'lucide-react';
 
 interface BuscaSeguroProps {
   filtros: FiltrosSeguro;

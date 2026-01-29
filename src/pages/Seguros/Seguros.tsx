@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BuscaSeguro } from '../../components/BuscaSeguro/BuscaSeguro';
 import { useFiltrosSeguro } from '../../hooks/useFiltrosSeguro';
-import { seguroService } from '../../services/SeguroService';
 import { SeguroVida } from '../../models/Interfaces';
+import { listarSegurosVida } from '../../services/Service';
 
 export function Seguros() {
   const [seguros, setSeguros] = useState<SeguroVida[]>([]);
@@ -15,7 +15,7 @@ export function Seguros() {
       try {
         setLoading(true);
         setErro(null);
-        const dados = await seguroService.listarTodos();
+        const dados = await listarSegurosVida();
         setSeguros(dados);
       } catch (error) {
         console.error('Erro ao carregar seguros:', error);
@@ -84,7 +84,7 @@ export function Seguros() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">
-            🛡️ Seguros de Vida
+             Seguros de Vida
           </h1>
           <p className="text-gray-600 text-lg">
             Busque e filtre os seguros cadastrados no sistema

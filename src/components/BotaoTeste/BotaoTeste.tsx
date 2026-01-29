@@ -1,34 +1,35 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export function BotaoTeste() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/seguros');
+  };
+
   return (
-    <Link
-      to="/testeSeguros"
-      className="fixed bottom-6 right-6 z-50 group"
-      title="Testar Busca e Filtros de Seguros"
+    <button
+      onClick={handleClick}
+      className="fixed bottom-8 right-8 bg-green-400 hover:bg-green-500 text-gray-900 
+                 px-6 py-4 rounded-full shadow-2xl hover:shadow-3xl 
+                 hover:scale-105 transition-all duration-300 
+                 flex items-center gap-3 font-semibold z-50"
+      aria-label="Testar Busca de Seguros"
     >
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.3, delay: 0.5 }}
-        className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-4 rounded-full shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center gap-3 group-hover:scale-110"
-      >
-        <span className="text-2xl">🧪</span>
-        <div className="flex flex-col">
-          <span className="text-xs font-semibold uppercase tracking-wide opacity-90">
-            Teste
-          </span>
-          <span className="text-sm font-bold">
-            Busca Seguros
-          </span>
-        </div>
-      </motion.div>
+      {/* Ícone de Escudo/Proteção */}
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth={2} 
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" 
+        />
+      </svg>
       
-      <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-        Funcionalidade desenvolvida por Mamadou
-        <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+      <div className="flex flex-col items-start">
+        <span className="text-xs uppercase tracking-wide opacity-80"></span>
+        <span className="text-sm font-bold">Busca Seguros</span>
       </div>
-    </Link>
+    </button>
   );
 }

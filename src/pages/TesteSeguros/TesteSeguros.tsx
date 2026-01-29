@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BuscaSeguro } from '../../components/BuscaSeguro/BuscaSeguro';
 import { useFiltrosSeguro } from '../../hooks/useFiltrosSeguro';
 import { listarSegurosVida } from '../../services/Service';
-import { SeguroVida, UsuarioSimplificado } from '../../models/Interfaces';
+import { SeguroVida,UsuarioSimplificado } from '../../models/Interfaces';
 import { SeguroActions } from '../../components/SeguroActions';
 import api from '../../services/api';
 
@@ -151,6 +151,6 @@ export function TesteSeguros() {
 }
 
 export const atualizarSeguroVida = async (seguro: SeguroVida): Promise<SeguroVida> => {
-  const response = await api.put(`/segurovida/${seguro.id}`, seguro);
+  const response = await api.put(`/seguros-vida/${seguro.id}`, seguro);
   return response.data;
 };
