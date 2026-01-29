@@ -75,13 +75,16 @@ export default function Produtos() {
       }));
     } else if (name.startsWith('contatoEmergencia.')) {
       const contatoField = name.split('.')[1];
-      setFormData(prev => ({
-        ...prev,
-        contatoEmergencia: {
-          ...prev.contatoEmergencia,
-          [contatoField]: value
-        }
-      }));
+      setFormData(prev => {
+        const contato = prev.contatoEmergencia || { nome: '', telefone: '', grauParentesco: '' };
+        return {
+          ...prev,
+          contatoEmergencia: {
+            ...contato,
+            [contatoField]: value
+          }
+        };
+      });
     } else {
       setFormData(prev => ({
         ...prev,
@@ -90,7 +93,7 @@ export default function Produtos() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validações básicas

@@ -8,6 +8,8 @@ import { Categorias } from "./pages/Categorias";
 import { CadastrarCategoria } from "./pages/CadastrarCategoria";
 import Produtos from "./pages/Produtos";
 import CadastrarUsuario from "./pages/CadastrarUsuario";
+import { TesteSeguros } from './pages/TesteSeguros/TesteSeguros';
+import { Seguros } from './pages/Seguros/Seguros'; // ← ADICIONAR
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
           <Route path="/cadastrarCategoria" element={<CadastrarCategoria />} />
           <Route path="/planos" element={<Produtos />} />
           <Route path="/cadastrarUsuario" element={<CadastrarUsuario/>}/>
+          <Route path="/testeSeguros" element={<TesteSeguros />} />
+          <Route path="/seguros" element={<Seguros />} /> {/* ← ADICIONAR */}
         </Routes>
       </main>
 

@@ -15,10 +15,10 @@ export function Footer() {
               saúde e previdência, adaptadas ao seu ritmo e necessidades.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-[#bae8b0] transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Facebook"><Facebook size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Instagram"><Instagram size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Twitter"><Twitter size={20} /></a>
+              <a href="#" className="hover:text-[#bae8b0] transition-colors" title="Linkedin"><Linkedin size={20} /></a>
             </div>
           </div>
 

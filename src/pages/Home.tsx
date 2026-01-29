@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShieldCheck, Users, TrendingUp, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { BotaoTeste } from "../components/BotaoTeste/BotaoTeste";
 
 export function Home() {
   return (
@@ -102,6 +103,9 @@ export function Home() {
           </Link>
         </div>
       </section>
+
+      <BotaoTeste />
+    
     </div>
   );
 }
