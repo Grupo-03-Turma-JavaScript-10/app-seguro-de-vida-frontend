@@ -18,29 +18,35 @@ export function useFiltrosSeguro({ seguros }: UseFiltrosSeguroProps) {
 
   // Aplicar filtros com useMemo (performance)
   const segurosFiltrados = useMemo(() => {
-    let resultado = [...seguros];
+    let resultado = [...seguros].filter(seguro =>
+      seguro &&
+      typeof seguro.tipoSeguro === 'string' &&
+      seguro.usuario &&
+      typeof seguro.usuario.nome === 'string' &&
+      typeof seguro.valorAssegurado === 'number'
+    );
 
     // FILTRO 1: Busca por tipo de seguro ou nome do usuário
     if (filtros.busca.trim()) {
       const buscaLower = filtros.busca.toLowerCase().trim();
       resultado = resultado.filter(
         (seguro) =>
-          seguro.tipoSeguro.toLowerCase().includes(buscaLower) ||
-          seguro.usuario.nome.toLowerCase().includes(buscaLower)
+          (seguro.tipoSeguro?.toLowerCase() || '').includes(buscaLower) ||
+          (seguro.usuario?.nome?.toLowerCase() || '').includes(buscaLower)
       );
     }
 
     // FILTRO 2: Valor mínimo
     if (filtros.valorMin > 0) {
       resultado = resultado.filter(
-        (seguro) => seguro.valorAssegurado >= filtros.valorMin
+        (seguro) => Number(seguro.valorAssegurado) >= filtros.valorMin
       );
     }
 
     // FILTRO 3: Valor máximo
     if (filtros.valorMax > 0) {
       resultado = resultado.filter(
-        (seguro) => seguro.valorAssegurado <= filtros.valorMax
+        (seguro) => Number(seguro.valorAssegurado) <= filtros.valorMax
       );
     }
 
@@ -48,13 +54,13 @@ export function useFiltrosSeguro({ seguros }: UseFiltrosSeguroProps) {
     resultado.sort((a, b) => {
       switch (filtros.ordenacao) {
         case 'valorCrescente':
-          return a.valorAssegurado - b.valorAssegurado;
+          return Number(a.valorAssegurado) - Number(b.valorAssegurado);
         case 'valorDecrescente':
-          return b.valorAssegurado - a.valorAssegurado;
+          return Number(b.valorAssegurado) - Number(a.valorAssegurado);
         case 'nomeAZ':
-          return a.usuario.nome.localeCompare(b.usuario.nome);
+          return (a.usuario?.nome || '').localeCompare(b.usuario?.nome || '');
         case 'nomeZA':
-          return b.usuario.nome.localeCompare(a.usuario.nome);
+          return (b.usuario?.nome || '').localeCompare(a.usuario?.nome || '');
         default:
           return 0;
       }

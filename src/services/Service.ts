@@ -8,6 +8,17 @@ const api = axios.create({
   baseURL: 'https://segura-vida.onrender.com'
 });
 
+// Atualizar seguro de vida
+export const atualizarSeguroVida = async (seguro: SeguroVida): Promise<SeguroVida> => {
+  const response = await api.put('/seguros-vida', seguro);
+  return response.data;
+};
+
+// Deletar seguro de vida
+export const deletarSeguroVida = async (id: number): Promise<void> => {
+  await api.delete(`/seguros-vida/${id}`);
+};
+
 // Listar todos os usuários
 export const listarUsuarios = async (): Promise<Usuario[]> => {
   const response = await api.get('/usuarios');

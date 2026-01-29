@@ -39,6 +39,7 @@ export interface SeguroVida {
   valorAssegurado: number;
   tipoSeguro: string;
   usuario: UsuarioSimplificado;
+  usuarioId: number;
 }
 
 // Interface para Filtros 
