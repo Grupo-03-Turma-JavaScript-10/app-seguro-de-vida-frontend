@@ -3,16 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { BuscaSeguro } from '../../components/BuscaSeguro/BuscaSeguro';
 import { useFiltrosSeguro } from '../../hooks/useFiltrosSeguro';
 import { listarSegurosVida } from '../../services/Service';
-import { SeguroVida,UsuarioSimplificado } from '../../models/Interfaces';
+import { SeguroVida } from '../../models/Interfaces';
 import { SeguroActions } from '../../components/SeguroActions';
-import api from '../../services/api';
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * Página temporária para testar o componente BuscaSeguro (Mamadou)
- * 
- * @returns {JSX.Element} Página com o componente BuscaSeguro e visualização dos seguros filtrados
- */
+
 export function TesteSeguros() {
   const [seguros, setSeguros] = useState<SeguroVida[]>([]);
   const [carregando, setCarregando] = useState(true);
@@ -23,13 +17,14 @@ export function TesteSeguros() {
     try {
       const data = await listarSegurosVida();
       // Mapeia para garantir que cada seguro tenha o campo usuario
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const segurosComUsuario: SeguroVida[] = data.map((seguro: any) => ({
         ...seguro,
         usuario: seguro.usuario || { id: seguro.usuarioId, nome: '' },
         usuarioId: seguro.usuarioId ?? (seguro.usuario ? seguro.usuario.id : undefined),
       }));
       setSeguros(segurosComUsuario);
-    } catch (e) {
+    } catch {
       setSeguros([]);
     } finally {
       setCarregando(false);
@@ -53,19 +48,23 @@ export function TesteSeguros() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-end mb-4">
           <button
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow"
-            onClick={() => navigate('/planos')}
+            className="bg-green-400 hover:bg-green-500 text-gray-900 
+                 px-6 py-4 rounded-full shadow-2xl hover:shadow-3xl 
+                 hover:scale-105 transition-all duration-300 
+                 flex items-center gap-3 font-semibold z-50"
+                 onClick={() => navigate('/planos')}
           >
             Contratar novo plano
+        
           </button>
         </div>
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            🛡️ Teste: Busca e Filtros de Seguros de Vida
+            Busca e Filtros de Seguros de Vida
           </h1>
           <p className="text-gray-600">
-            Página temporária para testar o componente BuscaSeguro (Mamadou)
+          
           </p>
         </div>
 
@@ -149,8 +148,3 @@ export function TesteSeguros() {
     </div>
   );
 }
-
-export const atualizarSeguroVida = async (seguro: SeguroVida): Promise<SeguroVida> => {
-  const response = await api.put(`/seguros-vida/${seguro.id}`, seguro);
-  return response.data;
-};

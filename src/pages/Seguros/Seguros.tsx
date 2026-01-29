@@ -16,7 +16,7 @@ export function Seguros() {
         setLoading(true);
         setErro(null);
         const dados = await listarSegurosVida();
-        setSeguros(dados);
+        setSeguros(dados as SeguroVida[]);
       } catch (error) {
         console.error('Erro ao carregar seguros:', error);
         setErro('Não foi possível carregar os seguros. Verifique se o backend está rodando na porta 4000.');
@@ -27,6 +27,7 @@ export function Seguros() {
 
     carregarSeguros();
   }, []);
+  // ...existing code...
 
   // Hook de filtragem
   const {

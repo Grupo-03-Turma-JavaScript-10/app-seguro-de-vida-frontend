@@ -4,7 +4,7 @@ export function BotaoTeste() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/seguros');
+    navigate('/TesteSeguros');
   };
 
   return (
